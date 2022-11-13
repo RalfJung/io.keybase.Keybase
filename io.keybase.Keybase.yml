@@ -1,0 +1,56 @@
+app-id: io.keybase.Keybase
+
+base: org.electronjs.Electron2.BaseApp
+base-version: '22.08'
+runtime: org.freedesktop.Platform
+runtime-version: '22.08'
+sdk: org.freedesktop.Sdk
+
+command: keybase
+
+separate-locales: false
+rename-desktop-file: keybase.desktop
+rename-icon: keybase
+
+finish-args:
+  # X11 performance
+  - --share=ipc
+  # We need X11
+  - --socket=x11
+  # Access to wayland
+  - --socket=wayland
+  # Network Access
+  - --share=network
+  # Access for downloading files
+  - --filesystem=xdg-download
+  # We need to send notifications
+  - --talk-name=org.freedesktop.Notifications
+  - --talk-name=org.kde.StatusNotifierWatcher
+  # Allow running in background
+  - --talk-name=org.freedesktop.portal.Background
+
+modules:
+  - name: keybase
+    buildsystem: simple
+    build-commands:
+      - install -Dm0755 keybase.sh "${FLATPAK_DEST}/bin/keybase"
+      - |
+        bsdtar -Oxf keybase.deb 'data.tar.xz' |
+          bsdtar -xf -
+      - mv opt/keybase "${FLATPAK_DEST}"/
+      - mv usr/bin "${FLATPAK_DEST}"/keybase/
+      # Desktop file and icon
+      - install -Dm0644 "usr/share/applications/keybase.desktop" "${FLATPAK_DEST}/share/applications/keybase.desktop"
+      - desktop-file-edit --set-key=Exec --set-value='keybase %U' "${FLATPAK_DEST}/share/applications/keybase.desktop"
+      - |
+        for size in 16 32 128 256 512; do
+          install -Dm0644 "usr/share/icons/hicolor/${size}x${size}/apps/keybase.png" "${FLATPAK_DEST}/share/icons/hicolor/${size}x${size}/apps/keybase.png"
+        done
+      - desktop-file-edit --set-key=Icon --set-value="keybase" "${FLATPAK_DEST}/share/applications/keybase.desktop"
+    sources:
+      - type: file
+        dest-filename: keybase.deb
+        url: https://s3.amazonaws.com/prerelease.keybase.io/linux_binaries/deb/keybase_6.0.2-20220610191041.a459abf326_amd64.deb
+        sha256: 14c85b312b891eae5de44d1d4d5024d36cbce545e686d299624e2a71b9e14712
+      - type: file
+        path: keybase.sh
