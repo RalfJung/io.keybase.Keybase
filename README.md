@@ -2,7 +2,8 @@
 
 This repo hosts an **inofficial** flatpak version of [Keybase](https://keybase.io/)
 
-Keybase is an encrypted messenger and file sharing software (but file sharing is not supported by this flatpak).
+Keybase is an encrypted messenger and file sharing software.
+However, file sharing (in particular access to the `/keybase` file system) is not supported by this flatpak.
 
 ## Installing
 
