@@ -50,7 +50,8 @@ modules:
     sources:
       - type: file
         dest-filename: keybase.deb
-        url: https://s3.amazonaws.com/prerelease.keybase.io/linux_binaries/deb/keybase_6.0.2-20220610191041.a459abf326_amd64.deb
-        sha256: 14c85b312b891eae5de44d1d4d5024d36cbce545e686d299624e2a71b9e14712
+        # Filename found in https://prerelease.keybase.io/deb/dists/stable/main/binary-amd64/Packages.
+        url: https://s3.amazonaws.com/prerelease.keybase.io/linux_binaries/deb/keybase_6.2.4-20240101011938.ae7e4a1c15_amd64.deb
+        sha256: 5f219bf45f37cfcf8e4a3c4e68ee64fa1daa218efca1f4bf65f4d7922e781394
       - type: file
         path: keybase.sh
