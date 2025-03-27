@@ -21,3 +21,9 @@ flatpak-builder --user --install --force-clean builddir io.keybase.Keybase.yml
 ```
 
 Now you can run it like any other flatpak.
+
+## Updating
+
+This respository provides flatpak for a fixed version of keybase. See [here](https://github.com/RalfJung/io.keybase.Keybase/blob/master/io.keybase.Keybase.yml#L54) for current version.
+
+To update keybase flatpak you need up date this line (see comment for where to find latest release file name), and then rebuild and install with command above. This should preseve you settings & database.
