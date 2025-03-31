@@ -55,4 +55,3 @@ modules:
         sha256: 386b9c90c5170f37c720c8506a060964e6d5e16e8bb9fa9378888283e7393233
       - type: file
         path: keybase.sh
-        tag: '6.4.0'  # Note that this doesn't appear in flatpak app version feild...
