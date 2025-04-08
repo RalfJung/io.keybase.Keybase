@@ -14,10 +14,13 @@ You will still need the default flathub repo for this, which can be added as fol
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
+This is required even if your distro has set up `flathub` as a system-wide flatpak repo!
+For some reason, `flatpak-builder` will not pick up system repos.
+
 Now clone this git repo, and then run:
 
 ```
-flatpak-builder --user --install --force-clean builddir io.keybase.Keybase.yml
+flatpak-builder --user --install --install-deps-from=flathub --force-clean builddir io.keybase.Keybase.yml
 ```
 
 Now you can run it like any other flatpak.
