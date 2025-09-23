@@ -11,7 +11,7 @@ This package is not on the official flathub, so you'll have to download, build, 
 You will still need the default flathub repo for this, which can be added as follows:
 
 ```
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 ```
 
 This is required even if your distro has set up `flathub` as a system-wide flatpak repo!
