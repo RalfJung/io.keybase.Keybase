@@ -2,9 +2,9 @@ app-id: io.keybase.Keybase
 
 sdk: org.freedesktop.Sdk
 runtime: org.freedesktop.Sdk
-runtime-version: '24.08'
+runtime-version: '25.08'
 base: org.electronjs.Electron2.BaseApp
-base-version: '24.08'
+base-version: '25.08'
 
 command: keybase
 
@@ -51,7 +51,7 @@ modules:
       - type: file
         dest-filename: keybase.deb
         # Filename found in https://prerelease.keybase.io/deb/dists/stable/main/binary-amd64/Packages.
-        url: https://s3.amazonaws.com/prerelease.keybase.io/linux_binaries/deb/keybase_6.4.0-20240821175720.3212f60cc5_amd64.deb
-        sha256: 386b9c90c5170f37c720c8506a060964e6d5e16e8bb9fa9378888283e7393233
+        url: https://s3.amazonaws.com/prerelease.keybase.io/linux_binaries/deb/keybase_6.6.3-20260603142455.f60f2ff97e_amd64.deb
+        sha256: e0eaa311cda42c9a49ec50bb591d0301fb26b2bbe8287ae6e11b41746a64b62e
       - type: file
         path: keybase.sh
